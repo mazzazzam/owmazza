@@ -2,9 +2,10 @@
   <div class="card">
     <div class="info">
       <img :src="product.imageUrl" :alt="product.name">
-      <p>{{ product.category }}</p>
-      <p>{{ product.name }}</p>
-      <p>R${{ product.price }}</p>
+      <p class="category">{{ product.category }}</p>
+      <p class="title">{{ product.name }}</p>
+      <p class="price">R${{ product.price }}</p>
+      <p class="installment">em até 12x {{ installment }} sem juros</p>
     </div>
     <div class="cardBtn">ADICIONAR AO CARRINHO</div>
   </div>
@@ -14,31 +15,14 @@
 export default {
   props: {
     product: Object
+  },
+
+  computed: {
+    installment() {
+      let installmentVal = this.product.price / 12;
+      return (Math.round(installmentVal * 100) / 100).toFixed(2);
+    }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.card {
-  width: 100%;
-  min-height: 400px;
-  // padding: 10px;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(209,209,209,1);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(209,209,209,1);
-  box-shadow: 0px 0px 5px 0px rgba(209,209,209,1);
-
-  img {
-    width: 100%;
-  }
-
-  .info {
-    padding: 10px;
-  }
-
-  .cardBtn {
-    // width: 100%;
-    min-height: 30px;
-    border-top: 1px solid blue;
-  }
-}
-</style>
