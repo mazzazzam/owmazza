@@ -32,6 +32,7 @@
 export default {
   data() {
     return {
+      // products: '',
       search: '',
     };
   },
@@ -43,7 +44,7 @@ export default {
     },
 
     searchFilter() {
-      return this.products.filter(product => {
+      return this.$store.state.products.productsList.filter(product => {
         return product.name.toLowerCase().includes(this.search.toLowerCase())
       })
     },
@@ -53,12 +54,14 @@ export default {
     }
   },
 
-  async mounted() {
-    await this.$store.dispatch("products/getProducts");
-    // .then((response) => {
-    // this.products = response
-    // console.log(response)
-    // })
+  methods: {
+    async loadProducts() {
+      await this.$store.dispatch("products/getProducts")
+    }
+  },
+
+  mounted() {
+    this.loadProducts()
   },
 };
 </script>

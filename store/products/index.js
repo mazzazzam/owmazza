@@ -1,3 +1,3 @@
 export const state = () => ({
-  productsList: null,
+  productsList: [],
 })
