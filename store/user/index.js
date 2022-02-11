@@ -1,3 +1,4 @@
 export const state = () => ({
-  productsList: null,
+  userInfo: [],
+  cart: [],
 })

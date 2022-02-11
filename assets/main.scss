@@ -1,85 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap");
 
+// colors
 $colorA: #8e36b7;
 $colorB: #494949;
+$colorC: #e7e7e7;
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-  // font-weight: 300;
+  font-family: "Source Sans Pro", sans-serif;
   margin: 0;
   padding: 0;
 }
 
-.neide {
-  background-color: fuchsia;
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 75vh;
+}
+
+.toast {
+  width: 50vw;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: $colorA;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+  position: fixed;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.5);
 }
 
 #navbar {
-  height: 130px;
+  height: 16vh;
   position: relative;
   z-index: 100;
-  -webkit-box-shadow: 0px 2px 5px 0px rgba(150,150,150,1);
-  -moz-box-shadow: 0px 2px 5px 0px rgba(150,150,150,1);
-  box-shadow: 0px 2px 5px 0px rgba(150,150,150,1);
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 1);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 1);
+  box-shadow: 0px 2px 5px 0px rgba(150, 150, 150, 1);
 
   .row {
-    height: 130px;
+    height: 16vh;
   }
 
   .logo {
     font-size: 30px;
+    text-decoration: none !important;
+    font-weight: 600;
+    color: $colorA;
   }
 
-  .button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px;
-    text-align: center;
+  .linkNav {
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    
-    &:hover {
-      background: red;
-      
-    }
+    color: $colorB;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-transform: uppercase;
+
+    &:hover { color: $colorA}
   }
 
-  ul, li {
+  ul,li {
     text-decoration: none;
     list-style: none;
   }
 }
 
 #footer {
-  //  position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: grey;
-   color: white;
-   text-align: center;
-}
-
-.fill { 
-    min-height: 100%;
-    height: 100%;
+  width: 100%;
+  margin-top: auto;
+  padding: 30px 0;
+  background-color: rgb(161, 161, 161);
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: $colorB;
 }
 
 .text-right {
   text-align: right;
 }
-
+.text-center {
+  text-align: center;
+}
 
 .card {
   width: 100%;
   // padding: 10px;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(209,209,209,1);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(209,209,209,1);
-  box-shadow: 0px 0px 5px 0px rgba(209,209,209,1);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(209, 209, 209, 1);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(209, 209, 209, 1);
+  box-shadow: 0px 0px 5px 0px rgba(209, 209, 209, 1);
   border-radius: 5px;
 
   img {
@@ -101,7 +115,6 @@ body {
       margin-top: 0;
       font-weight: 300;
       height: 6vh;
-
     }
 
     .price {
@@ -116,7 +129,6 @@ body {
       font-weight: 300;
       margin-top: 5px;
     }
-
   }
 
   .cardBtn {
@@ -137,5 +149,163 @@ body {
       color: #fff;
       transition: 0.3s;
     }
+  }
+}
+
+input {
+  width: 100%;
+  height: 40px;
+  // margin: 20px;
+  // padding:10px;
+  border-radius: 10px;
+  border: solid gray 1px;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  font-size: 14px;
+  padding-left: 10px;
+  caret-color: red;
+}
+
+.searchInput {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: 0;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  background: url(@/assets/img/magnifying-glass.svg) no-repeat scroll 12px 12px;
+  background-size: 25px;
+  padding-left: 50px;
+  font-size: 20px;
+}
+
+.hintError {
+  font-size: 0.8em;
+  color: red;
+}
+
+.btn {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 20px;
+  background: $colorA;
+  padding: 10px 25px;
+  text-decoration: none;
+  border: 0;
+  font-weight: 600;
+  font-size: 0.8em;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  &:hover {
+    background: #652087;
+    text-decoration: none;
+  }
+}
+
+.btn-secondary {
+  background-color: $colorC;
+  color: $colorB;
+
+  &:hover {
+    background: $colorB;
+    color: $colorC;
+    text-decoration: none;
+  }
+}
+
+.btn-delete {
+  background-color: transparent;
+  padding: 8px;
+  margin-right: 10px;
+
+  &:hover {
+    background: $colorC;
+    text-decoration: none;
+  }
+}
+
+.btn-quantity {
+  background-color: $colorC;
+  color: $colorB;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  &:hover {
+    background: $colorC;
+    text-decoration: none;
+  }
+  
+}
+
+.btn-cart {
+  background-color: transparent;
+  padding: 10px 20px;
+  width: 100px;
+
+  &:hover {
+    background-color: $colorC;
+  }
+
+  .badge {
+    height: 20px;
+    width: 20px;
+    margin-left: 5px;
+    background-color: $colorA;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .8em;
+  }
+  
+}
+
+.cartResume {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    height: 60px;
+    text-align: left;
+    background-color: #dddddd;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.8em;
+
+    td {
+      border: 0;
+    }
+  }
+
+  tfoot {
+    height: 80px;
+    tr {
+      border-top: 1px solid $colorB;
+      border-bottom: 1px solid $colorB;
+      margin: 20px 0;
+    }
+  }
+
+  td {
+    padding: 10px 0;
+  }
+}
+
+.empty-cart {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+@media screen and (max-width: 600px) {
+  .hide-sm {
+    visibility: hidden;
+    display: none;
   }
 }

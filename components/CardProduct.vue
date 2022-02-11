@@ -7,7 +7,7 @@
       <p class="price">R${{ product.price }}</p>
       <p class="installment">em até 12x {{ installment }} sem juros</p>
     </div>
-    <div class="cardBtn">ADICIONAR AO CARRINHO</div>
+    <div class="cardBtn" @click="addToCart(product)">ADICIONAR AO CARRINHO</div>
   </div>
 </template>
 
@@ -21,6 +21,12 @@ export default {
     installment() {
       let installmentVal = this.product.price / 12;
       return (Math.round(installmentVal * 100) / 100).toFixed(2);
+    }
+  },
+
+  methods: {
+    addToCart(id) {
+      this.$store.dispatch('user/addToCart', id)
     }
   }
 }

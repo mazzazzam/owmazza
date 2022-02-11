@@ -1,5 +1,5 @@
 export default {
-  STORE(state, payload) {
-    state.products = payload
+  GET_PRODUCTS(state, payload) {
+    state.productsList = payload
   }
 }

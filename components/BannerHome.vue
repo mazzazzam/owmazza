@@ -48,7 +48,7 @@
 <style lang="scss" scoped>
 
 .slidershow {
-  width: 100vw;
+  width: 100%;
   height: auto;
   overflow: hidden;
 }
@@ -71,8 +71,9 @@
 }
 
 .bar {
-  width: 50px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
   border: 2px solid white;
   margin: 5px;
   cursor: pointer;

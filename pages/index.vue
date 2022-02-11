@@ -5,15 +5,20 @@
     </div>
 
     <div class="container">
-      <div class="row">
-        <div class="col">
-          <Search />
+
+      <div class="row my-4">
+        <div class="col-md-3">
+          <p>Encontre seu Produto:</p>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="searchInput" v-model="search" placeholder="digite o que procura...">
         </div>
       </div>
+
       <div class="row">
         <div
           class="col-md-4 col-sm-12 mb-4"
-          v-for="product in products"
+          v-for="product in searchFilter"
           :key="product.id"
         >
           <CardProduct :product="product" />
@@ -27,17 +32,28 @@
 export default {
   data() {
     return {
-      // products: [],
+      search: '',
     };
   },
 
   computed: {
     products() {
-      return this.$store.state.products.products;
+      return this.$store.state.products.productsList;
+      //todo: fazer get e set
     },
+
+    searchFilter() {
+      return this.products.filter(product => {
+        return product.name.toLowerCase().includes(this.search.toLowerCase())
+      })
+    },
+
+    cart() {
+      return this.$store.state.user.cart;
+    }
   },
 
-  async created() {
+  async mounted() {
     await this.$store.dispatch("products/getProducts");
     // .then((response) => {
     // this.products = response
