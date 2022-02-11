@@ -11,7 +11,7 @@
           <p>Encontre seu Produto:</p>
         </div>
         <div class="col-md-9">
-          <input type="text" class="searchInput" v-model="search" placeholder="digite o que procura...">
+          <input type="text" class="searchInput" v-model="search" placeholder="o que você procura?">
         </div>
       </div>
 
@@ -32,7 +32,6 @@
 export default {
   data() {
     return {
-      // products: '',
       search: '',
     };
   },
@@ -40,7 +39,6 @@ export default {
   computed: {
     products() {
       return this.$store.state.products.productsList;
-      //todo: fazer get e set
     },
 
     searchFilter() {

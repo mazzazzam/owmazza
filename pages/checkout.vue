@@ -120,7 +120,9 @@ export default {
       }
     },
 
-    orderPlaced() {
+    orderPlaced(order) {
+      this.$store.dispatch("user/saveOrder", order)
+      console.log(order)
       alert('boa neideee!')
     }
 

@@ -11,7 +11,7 @@
           </NuxtLink>
         </div>
         
-        <div class="col-md-2 col text-right">
+        <div class="col-md-2 col-6 d-flex justify-content-end">
           <NuxtLink to="/cart" class="btn btn-cart d-flex align-items-center justify-content-center">
             <img src="@/assets/img/shopping-cart.svg" alt="cart">
             <span class="badge">{{ cartItems }}</span>

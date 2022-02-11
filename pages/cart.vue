@@ -65,7 +65,7 @@
 
           <div class="col-6 my-5 text-right">
             <NuxtLink to="checkout">
-              <button class="btn">Checkout</button>
+              <button class="btn">Ir para o Checkout</button>
             </NuxtLink>
           </div>
         </div>

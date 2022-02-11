@@ -22,4 +22,9 @@ export default {
     state.cart.splice(cartProductIndex, 1);
   },
 
+  SAVE_ORDER(state, payload) {
+    state.orders.push({
+      ...payload,
+    })
+  }
 }
